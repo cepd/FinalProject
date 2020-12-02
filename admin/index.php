@@ -71,6 +71,9 @@ font-size: 16px;"> Last access : 26 Nov 2020 &nbsp; <a href="login.html" class="
                           elseif($_GET['halaman']=="pelanggan"){
                               include 'pelanggan.php';
                           }
+                          elseif($_GET['halaman']=="detail"){
+                              include 'detail.php';
+                          }
                       }
                       else
                       {
