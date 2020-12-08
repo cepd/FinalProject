@@ -82,6 +82,10 @@ font-size: 16px;"> Last access : 26 Nov 2020 &nbsp; <a href="login.html" class="
                           {
                               include 'hapusproduk.php';
                           }
+                          elseif($_GET['halaman']=="ubahproduk")
+                          {
+                              include 'ubahproduk.php';
+                          }
                       }
                       else
                       {
