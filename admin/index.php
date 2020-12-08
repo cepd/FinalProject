@@ -74,6 +74,10 @@ font-size: 16px;"> Last access : 26 Nov 2020 &nbsp; <a href="login.html" class="
                           elseif($_GET['halaman']=="detail"){
                               include 'detail.php';
                           }
+                          elseif($_GET['halaman']=="tambahproduk")
+                          {
+                              include 'tambahproduk.php';
+                          }
                       }
                       else
                       {

@@ -20,7 +20,9 @@
             <td><?php echo $pecah['nama_produk']; ?></td>
             <td><?php echo $pecah['harga_produk']; ?></td>
             <td><?php echo $pecah['berat']; ?></td>
-            <td><?php echo $pecah['foto_produk']; ?></td>
+            <td>
+                <img src="../foto_banten/<?php echo $pecah['foto_produk']; ?>" width="100">
+            </td>
             <td>
                 <a href="" class="btn-danger btn">hapus</a>
                 <a href="" class="btn-warning btn">ubah</a>
@@ -30,3 +32,4 @@
     <?php } ?>
     </tbody>
 </table>
+<a href="index.php?halaman=tambahproduk" class="btn btn-primary">Tambah Banten</a>
