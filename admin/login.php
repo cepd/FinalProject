@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+$koneksi = new mysqli("localhost","root","","bantenku");
+
+?> 
+
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -19,9 +26,9 @@
         <div class="row text-center ">
             <div class="col-md-12">
                 <br /><br />
-                <h2> Binary Admin : Login</h2>
+                <h2> Bantenku : Login</h2>
                
-                <h5>( Login yourself to get access )</h5>
+                <h5>( Laman ini hanya untuk Admin Bantenku )</h5>
                  <br />
             </div>
         </div>
@@ -33,15 +40,15 @@
                         <strong>   Enter Details To Login </strong>  
                             </div>
                             <div class="panel-body">
-                                <form role="form">
+                                <form role="form" method="post">
                                        <br />
                                      <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                            <input type="text" class="form-control" placeholder="Your Username " />
+                                            <input type="text" class="form-control" name="user" />
                                         </div>
-                                                                              <div class="form-group input-group">
+                                        <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                            <input type="password" class="form-control"  placeholder="Your Password" />
+                                            <input type="password" class="form-control"  name="pass" />
                                         </div>
                                     <div class="form-group">
                                             <label class="checkbox-inline">
@@ -52,10 +59,29 @@
                                             </span>
                                         </div>
                                      
-                                     <a href="index.html" class="btn btn-primary ">Login Now</a>
+                                     <button class="btn btn-primary" name="login">Login</button>
                                     <hr />
-                                    Not register ? <a href="registeration.html" >click here </a> 
+                                    Not yet registered ? <a href="registeration.html" >click here </a> 
                                     </form>
+                                    <?php
+                                        if (isset($_POST['login']))
+                                        {
+                                            $ambil = $koneksi->query("SELECT*FROM adminn WHERE username='$_POST[user]'
+                                            AND pass_word = '$_POST[pass]'");
+                                            $match = $ambil->num_rows;
+                                            if($match==1)
+                                            {
+                                                $_SESSION['adminn']=$ambil->fetch_assoc();
+                                                echo"<div class='alert alert-info'>Login Sukses</div>";
+                                                echo "<meta http-equiv='refresh' content='1;url=index.php'>";
+                                            }
+                                            else
+                                            {
+                                                echo"<div class='alert alert-danger'>Login Gagal</div>";
+                                                echo "<meta http-equiv='refresh' content='1;url=login.php'>";
+                                            }
+                                        }
+                                    ?>
                             </div>
                            
                         </div>

@@ -1,7 +1,24 @@
 ﻿<?php
+
 //koneksi ke database
-$koneksi = new mysqli("localhost","root","","bantenku")
+$koneksi = new mysqli("localhost","root","","bantenku");
+
+session_start();
+if(!isset($_SESSION['admin']))
+{
+    echo "<script>alert('Silahkan Login');</script>";
+    echo "<script>location='login.php';</script>";
+    header('location:login.php');
+    exit();
+}
+else
+{
+    echo "<script>location='index.php';</script>";
+}
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -85,6 +102,10 @@ font-size: 16px;"> Last access : 26 Nov 2020 &nbsp; <a href="login.html" class="
                           elseif($_GET['halaman']=="ubahproduk")
                           {
                               include 'ubahproduk.php';
+                          }
+                          elseif($_GET['halaman']=="logout")
+                          {
+                              include 'logout.php';
                           }
                       }
                       else
