@@ -4,7 +4,7 @@
 $koneksi = new mysqli("localhost","root","","bantenku");
 
 session_start();
-if(!isset($_SESSION['admin']))
+/*if(!isset($_SESSION['admin']))
 {
     echo "<script>alert('Silahkan Login');</script>";
     echo "<script>location='login.php';</script>";
@@ -15,6 +15,7 @@ else
 {
     echo "<script>location='index.php';</script>";
 }
+*/
 
 
 ?>
@@ -52,7 +53,7 @@ else
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 26 Nov 2020 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
