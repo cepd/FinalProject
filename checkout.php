@@ -1,6 +1,6 @@
-<?
+<?php
 session_start();
-$koneksi= new mysqli("localhost","root", "","bantenku");
+$koneksi= new mysqli("localhost","root","","bantenku");
 
 //no session pelanggan, dialihkan ke login.php
 if(!isset($_SESSION["pelanggan"]))
@@ -112,7 +112,48 @@ if(!isset($_SESSION["pelanggan"]))
             <button class="btn btn-primary" name="checkout">Checkout</button>
         </form>
 
+        <?php
+            if(isset($_POST["checkout"]))
+            {
+                $id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
+                $id_ongkir = $_POST["id_ongkir"];
+                $tanggal_pembelian = date("Y-m-d");
+
+                $ambil = $koneksi->query("SELECT*FROM ongkir WHERE id_ongkir='$id_ongkir'");
+                $arrayongkir = $ambil->fetch_assoc();
+                $tarif = $arrayongkir['tarif'];
+    
+                $total_pembelian = $totalbelanja + $tarif;
+
+
+                //menyimpan data ke tabel pembelian
+                $koneksi->query("INSERT INTO pembelian(
+                    id_pelanggan, id_ongkir, tanggal_pembelian, total_pembelian)
+                VALUES ('$id_pelanggan', '$id_ongkir', '$tanggal_pembelian', '$total_pembelian')"
+                    );
+
+                //mendapatkan id_pembelian yang barusan terjadi
+                $id_pembelian_barusan = $koneksi->insert_id;
+
+                foreach($_SESSION["keranjang"] as $id_produk => $jumlah)
+                {
+                    $koneksi->query("INSERT INTO pembelian_produk(id_pembelian, id_produk, jumlah) 
+                                      VALUES ('$id_pembelian_barusan', '$id_produk','$jumlah')");
+                }
+
+                //mengosongkan kerjanjang belanja
+                unset($_SESSION["keranjang"]);
+
+                //tampilan dialihkan ke halaman nota, nota dari pembelian yang barusan terjadi
+                echo "<script>alert('pembelian sukses');</script>";
+                echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
+            }
+        ?>
+
     </div>
 </section>
+
+<pre><?php print_r($_SESSION['pelanggan'])?></pre>
+<pre><?php print_r($_SESSION["keranjang"])?></pre>
 </body>
 </html>
