@@ -13,24 +13,7 @@ $koneksi = new mysqli("localhost", "root","","bantenku");
 </head>
 <body>
 
-    <!-- navigation bar -->
-<nav class="navbar navbar-default">
-    <div class="container">
-        <ul class="nav navbar-nav">
-            <li><a href="index.php">Beranda</a></li>
-            <li><a href="keranjang.php">Keranjang</a></li>
-            <!-- jika sudah login -->
-            <?php if (isset($_SESSION["pelanggan"])): ?>
-                <li><a href="logout.php">Logout</a></li>
-            <!--jika belum login-->
-            <?php else: ?>
-                <li><a href="login.php">Login</a></li>
-            <?php endif ?>
-
-            <li><a href="checkout.php">Checkout</a></li>
-        </ul>
-    </div>
-</nav>
+<?php include 'menu.php';?>
 
 <div class="container">
     <div class="row">

@@ -19,24 +19,8 @@ if(!isset($_SESSION["pelanggan"]))
     <link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 </head>
 <body>
-    <!-- navigation bar -->
-    <nav class="navbar navbar-default">
-    <div class="container">
-        <ul class="nav navbar-nav">
-            <li><a href="index.php">Beranda</a></li>
-            <li><a href="keranjang.php">Keranjang</a></li>
-            <!-- jika sudah login -->
-            <?php if (isset($_SESSION["pelanggan"])): ?>
-                <li><a href="logout.php">Logout</a></li>
-            <!--jika belum login-->
-            <?php else: ?>
-                <li><a href="login.php">Login</a></li>
-            <?php endif ?>
+<?php include 'menu.php';?>
 
-            <li><a href="checkout.php">Checkout</a></li>
-        </ul>
-    </div>
-</nav>
 <section class="konten">
     <div class="container">
         <h1>Keranjang Belanja</h1>
