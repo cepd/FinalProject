@@ -5,10 +5,6 @@ $koneksi = new mysqli("localhost","root","","bantenku");
 
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>

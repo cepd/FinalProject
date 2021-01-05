@@ -144,7 +144,6 @@ if(!isset($_SESSION["pelanggan"]))
     </div>
 </section>
 
-<pre><?php print_r($_SESSION['pelanggan'])?></pre>
-<pre><?php print_r($_SESSION["keranjang"])?></pre>
+
 </body>
 </html>
