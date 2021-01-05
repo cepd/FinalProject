@@ -61,7 +61,17 @@ if (isset($_POST["login"]))
         //simpan di session pelanggan
         $_SESSION["pelanggan"] = $akun;
         echo"<script>alert('Anda SUKSES login, Selamat datang di Bantenku!');</script>";
-        echo"<script>location='checkout.php';</script>";
+
+        //jika sudah belanja
+        if(isset($_SESSION["keranjang"]) OR !empty($_SESSION["keranjang"]))
+        {
+            echo"<script>location='checkout.php';</script>";
+        }
+        else
+        {
+            echo"<script>location='riwayat.php';</script>";
+        }
+        
     }
     else
     {

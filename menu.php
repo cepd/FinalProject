@@ -4,6 +4,7 @@
         <ul class="nav navbar-nav">
             <li><a href="index.php">Beranda</a></li>
             <li><a href="keranjang.php">Keranjang</a></li>
+            <li><a href="riwayat.php">Riwayat Belanja</a></li>
             <!-- jika sudah login -->
             <?php if (isset($_SESSION["pelanggan"])): ?>
                 <li><a href="logout.php">Logout</a></li>
