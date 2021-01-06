@@ -38,7 +38,7 @@ else
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<body>
+<body> 
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -107,6 +107,10 @@ font-size: 16px;"> &nbsp; <a href="login.html" class="btn btn-danger square-btn-
                           elseif($_GET['halaman']=="logout")
                           {
                               include 'logout.php';
+                          }
+                          elseif($_GET['halaman']=="pembayaran")
+                          {
+                              include 'pembayaran.php';
                           }
                       }
                       else
