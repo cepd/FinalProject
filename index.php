@@ -1,6 +1,7 @@
 <?php
 
 //koneksi ke database
+session_start();
 $koneksi = new mysqli("localhost","root","","bantenku");
 
 ?>

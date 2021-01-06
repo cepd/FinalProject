@@ -8,7 +8,6 @@ if(!isset($_SESSION["pelanggan"]))
     echo"<script>alert('Silahkan Login');</script>";
     echo"<script>location='login.php';</script>";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,7 +119,7 @@ if(!isset($_SESSION["pelanggan"]))
                 //menyimpan data ke tabel pembelian
                 $koneksi->query("INSERT INTO pembelian(
                     id_pelanggan, id_ongkir, tanggal_pembelian, total_pembelian, nama_kota, tarif, alamat_pengiriman)
-                VALUES ('$id_pelanggan', '$id_ongkir', '$tanggal_pembelian', '$total_pembelian', '$nama_kota', '$tarif', '$alamat_pengiriman')"
+                                VALUES ('$id_pelanggan', '$id_ongkir', '$tanggal_pembelian', '$total_pembelian', '$nama_kota', '$tarif', '$alamat_pengiriman')"
                     );
 
                 //mendapatkan id_pembelian yang barusan terjadi
@@ -144,6 +143,8 @@ if(!isset($_SESSION["pelanggan"]))
     </div>
 </section>
 
+<pre><?php print_r($_SESSION['pelanggan'])?></pre>
+<pre><?php print_r($_SESSION["keranjang"])?></pre>
 
 </body>
 </html>

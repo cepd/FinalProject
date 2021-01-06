@@ -1,4 +1,5 @@
 <?php
+session_start();
 $koneksi= new mysqli("localhost","root","","bantenku");
 ?>
 
@@ -40,7 +41,7 @@ $koneksi= new mysqli("localhost","root","","bantenku");
             Tanggal : <?php echo $detail['tanggal_pembelian'];?><br>
             Total : Rp<?php echo number_format($detail['total_pembelian']); ?>
 
-                <div class="col-md-4">
+                <div class="col-md">
                 <h3>Pelanggan</h3>
                 <strong><?php echo $detail['nama_pelanggan'];?></strong><br>
                 <p>
@@ -50,12 +51,12 @@ $koneksi= new mysqli("localhost","root","","bantenku");
                 </div>
             </div>
 
-            <div class="col-md-4">
-            <h3>Pengiriman</h3>
-            <strong><?php echo $detail['nama_pelanggan'];?></strong><br>
-            Ongkos Kirim : Rp<?php echo number_format($detail['tarif']); ?><br>
-            Alamat : <?php echo $detail['alamat_pengiriman'];?>
-            </div>
+                    <div class="col-md-4">
+                    <h3>Pengiriman</h3>
+                    <strong><?php echo $detail['nama_pelanggan'];?></strong><br>
+                    Ongkos Kirim : Rp<?php echo number_format($detail['tarif']); ?><br>
+                    Alamat : <?php echo $detail['alamat_pengiriman'];?>
+                    </div>
         </div>
 
 
