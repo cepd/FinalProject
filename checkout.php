@@ -7,7 +7,11 @@ if(!isset($_SESSION["pelanggan"]))
 {
     echo"<script>alert('Silahkan Login');</script>";
     echo"<script>location='login.php';</script>";
+} else if (!isset($_SESSION["keranjang"]) OR empty($_SESSION["keranjang"])) {
+    echo"<script>alert('Silahkan beli sesuatu terlebih dahulu!');</script>";
+    echo"<script>location='index.php';</script>";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,6 +108,10 @@ if(!isset($_SESSION["pelanggan"]))
             {
                 $id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
                 $id_ongkir = $_POST["id_ongkir"];
+                if (!$id_ongkir) {
+                    echo "<script>alert('Silahkan pilih ongkir!');</script>";
+                    return;
+                }
                 $tanggal_pembelian = date("Y-m-d");
                 $alamat_pengiriman = $_POST['alamat_pengiriman'];
 
@@ -142,9 +150,6 @@ if(!isset($_SESSION["pelanggan"]))
 
     </div>
 </section>
-
-<pre><?php print_r($_SESSION['pelanggan'])?></pre>
-<pre><?php print_r($_SESSION["keranjang"])?></pre>
 
 </body>
 </html>

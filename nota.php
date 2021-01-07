@@ -91,16 +91,17 @@ $koneksi= new mysqli("localhost","root","","bantenku");
             </tbody>
         </table>
 
-<div class = "row">
-    <div class="col-md-7">
-        <div class="alert alert-info">
-            <p>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="alert alert-info">
+                <p>
                     Silahkan lakukan pembayaran Rp<?php echo number_format($detail['total_pembelian']);?> ke <br>
                     <strong>BANK BNI 0734295728 a.n. Chintya Prema Dewi</strong>
-            </p>
+                </p>
+            </div>
         </div>
     </div>
-</div>
+    <a href="pembayaran.php?id=<?php echo $_GET["id"];?>" class="btn btn-success">Pembayaran</a>
 
     </div>
 </section>
