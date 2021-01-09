@@ -47,17 +47,13 @@ if (isset($_POST["login"]))
     $password = $_POST["password"];
     //lakukan query untuk mengecek akun di tabel pelanggan di db
     $ambil = $koneksi->query("SELECT *FROM pelanggan
-    WHERE email_pelanggan = '$email' AND password_pelanggan='$password'");
+    WHERE email_pelanggan = '$email'");
 
-    //ngitung akun yang terambil
-    $akunyangcocok = $ambil->num_rows;
+    $akun = $ambil->fetch_assoc();
 
     //jika 1 akun yang cocok, maka di loginkan
-    if($akunyangcocok==1)
+    if(password_verify($password, $akun['password_pelanggan']))
     {
-        //anda sukses login
-        //mendapatkan akun dalam bentuk array
-        $akun = $ambil->fetch_assoc();
         //simpan di session pelanggan
         $_SESSION["pelanggan"] = $akun;
         echo"<script>alert('Anda SUKSES login, Selamat datang di Bantenku!');</script>";

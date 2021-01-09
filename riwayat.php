@@ -4,7 +4,7 @@ $koneksi = new mysqli("localhost", "root","","bantenku");
 
 //jika tidak ada session pelanggan
 
-if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
+if(!isset($_SESSION["pelanggan"]))
 {
     echo"<script>alert('silahkan login');</script>";
     echo"<script>location='login.php';</script>";

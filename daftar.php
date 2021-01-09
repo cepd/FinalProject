@@ -92,6 +92,7 @@ $koneksi = new mysqli("localhost","root","","bantenku");
                         }
                         else
                         {
+                            $password = password_hash($password, PASSWORD_DEFAULT);
                             $koneksi->query("INSERT INTO pelanggan(email_pelanggan, password_pelanggan, nama_pelanggan, telepon_pelanggan, alamat_pelanggan)
                             VALUES ('$email', '$password', '$nama', '$telepon', '$alamat')");
 
