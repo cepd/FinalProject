@@ -1,5 +1,14 @@
 <h2>Data Pembayaran</h2>
 
+<?php
+session_start();
+if(!isset($_SESSION['adminn']))
+{
+    echo "<script>alert('Silahkan Login');</script>";
+    echo "<script>location='login.php';</script>";
+}
+
+?>
 
 <?php
     //$koneksi = new mysqli("localhost","root","","bantenku");

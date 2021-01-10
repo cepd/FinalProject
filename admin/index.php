@@ -1,22 +1,12 @@
 ﻿<?php
-
-//koneksi ke database
+session_start();
 $koneksi = new mysqli("localhost","root","","bantenku");
 
-session_start();
-/*if(!isset($_SESSION['admin']))
+if(!isset($_SESSION['adminn']))
 {
     echo "<script>alert('Silahkan Login');</script>";
     echo "<script>location='login.php';</script>";
-    header('location:login.php');
-    exit();
 }
-else
-{
-    echo "<script>location='index.php';</script>";
-}
-*/
-
 
 ?>
 

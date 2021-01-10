@@ -60,8 +60,6 @@ $koneksi = new mysqli("localhost","root","","bantenku");
                                         </div>
                                      
                                      <button class="btn btn-primary" name="login">Login</button>
-                                    <hr />
-                                    Not yet registered ? <a href="registeration.html" >click here </a> 
                                     </form>
                                     <?php
                                         if (isset($_POST['login']))

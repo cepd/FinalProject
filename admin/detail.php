@@ -1,5 +1,13 @@
 <h2>Detail Pembelian</h2>
 <?php
+
+session_start();
+if(!isset($_SESSION['adminn']))
+{
+    echo "<script>alert('Silahkan Login');</script>";
+    echo "<script>location='login.php';</script>";
+}
+
 $ambil = $koneksi->query("SELECT*FROM pembelian JOIN pelanggan 
 ON pembelian.id_pelanggan=pelanggan.id_pelanggan 
 WHERE pembelian.id_pembelian='$_GET[id]'");

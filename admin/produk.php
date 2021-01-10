@@ -1,5 +1,15 @@
 <h2>Produk Penjualan</h2>
 
+<?php
+session_start();
+if(!isset($_SESSION['adminn']))
+{
+    echo "<script>alert('Silahkan Login');</script>";
+    echo "<script>location='login.php';</script>";
+}
+
+?>
+
 <table class="table table-bordered">
     <thead>
         <tr>
