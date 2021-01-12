@@ -13,9 +13,7 @@ $id_produk = $_GET["id"];
 $ambil = $koneksi->query("SELECT * FROM  produk WHERE id_produk = '$id_produk'");
 $detail = $ambil->fetch_assoc();
 
-echo"<pre>";
-print_r($detail);
-echo"</pre>"
+
 
 ?>
 

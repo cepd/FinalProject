@@ -1,7 +1,7 @@
 <h2>Data Pembelian</h2>
 
 <?php
-session_start();
+//session_start();
 if(!isset($_SESSION['adminn']))
 {
     echo "<script>alert('Silahkan Login');</script>";

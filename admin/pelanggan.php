@@ -1,6 +1,6 @@
 <h2>Data Pelanggan</h2>
 <?php
-session_start();
+//session_start();
 if(!isset($_SESSION['adminn']))
 {
     echo "<script>alert('Silahkan Login');</script>";
@@ -28,7 +28,7 @@ if(!isset($_SESSION['adminn']))
             <td><?php echo $pecah['email_pelanggan']; ?></td>
             <td><?php echo $pecah['telepon_pelanggan']; ?></td>
             <td>
-                <a href="" class="btn btn-danger">hapus</a>
+                <a href="index.php?halaman=hapuspelanggan&id=<?php echo $pecah['id_pelanggan'];?>" class="btn btn-danger">hapus</a>
             </td>
         </tr>
         <?php $nomor++; ?>

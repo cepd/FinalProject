@@ -67,24 +67,24 @@ $koneksi= new mysqli("localhost","root","","bantenku");
                     <th>no</th>
                     <th>nama produk</th>
                     <th>harga</th>
+                    <th>Berat</th>
                     <th>jumlah</th>
+                    <th>Subberat</th>
                     <th>subtotal</th>
                 </tr>
             </thead>
                 <?php $nomor=1;?>
-                <?php $ambil=$koneksi->query("SELECT * FROM pembelian_produk JOIN produk
-                ON pembelian_produk.id_produk=produk.id_produk
-                WHERE pembelian_produk.id_pembelian='$_GET[id]'"); ?>
+                <?php $ambil=$koneksi->query("SELECT * FROM pembelian_produk WHERE id_pembelian='$_GET[id]'"); ?>
                 <?php while($pecah=$ambil->fetch_assoc()) {?>
             <tbody>
             <tr>
                 <td><?php echo $nomor;?></td>
-                <td><?php echo $pecah['nama_produk'];?></td>
-                <td><?php echo $pecah['harga_produk'];?></td>
+                <td><?php echo $pecah['nama'];?></td>
+                <td>Rp<?php echo number_format ($pecah['harga']);?></td>
+                <td><?php echo $pecah['berat'];?> Gr.</td>
                 <td><?php echo $pecah['jumlah'];?></td>
-                <td>
-                    <?php echo $pecah['harga_produk']*$pecah['jumlah'];?>
-                </td>
+                <td><?php echo $pecah['subberat'];?> Gr.</td>
+                <td>Rp<?php echo number_format ($pecah['subharga']);?></td>
             </tr>
                 <?php $nomor++;?>    
                 <?php } ?>
